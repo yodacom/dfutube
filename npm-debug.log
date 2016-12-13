@@ -1,0 +1,27 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/6.4.0/bin/node',
+1 verbose cli   '/users/jjblack/.npm-packages/bin/npm',
+1 verbose cli   'start' ]
+2 info using npm@3.8.7
+3 info using node@v6.4.0
+4 verbose config Skipping project config: /Users/jjblack/.npmrc. (matches userconfig)
+5 verbose stack Error: missing script: start
+5 verbose stack     at run (/users/jjblack/.npm-packages/lib/node_modules/npm/lib/run-script.js:147:19)
+5 verbose stack     at /users/jjblack/.npm-packages/lib/node_modules/npm/lib/run-script.js:57:5
+5 verbose stack     at /users/jjblack/.npm-packages/lib/node_modules/npm/node_modules/read-package-json/read-json.js:345:5
+5 verbose stack     at checkBinReferences_ (/users/jjblack/.npm-packages/lib/node_modules/npm/node_modules/read-package-json/read-json.js:309:45)
+5 verbose stack     at final (/users/jjblack/.npm-packages/lib/node_modules/npm/node_modules/read-package-json/read-json.js:343:3)
+5 verbose stack     at then (/users/jjblack/.npm-packages/lib/node_modules/npm/node_modules/read-package-json/read-json.js:113:5)
+5 verbose stack     at /users/jjblack/.npm-packages/lib/node_modules/npm/node_modules/read-package-json/read-json.js:232:12
+5 verbose stack     at /users/jjblack/.npm-packages/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16
+5 verbose stack     at tryToString (fs.js:455:3)
+5 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:442:12)
+6 verbose cwd /Users/jjblack/Desktop/projects/dfutube
+7 error Darwin 16.1.0
+8 error argv "/usr/local/Cellar/node/6.4.0/bin/node" "/users/jjblack/.npm-packages/bin/npm" "start"
+9 error node v6.4.0
+10 error npm  v3.8.7
+11 error missing script: start
+12 error If you need help, you may report this error at:
+12 error     <https://github.com/npm/npm/issues>
+13 verbose exit [ 1, true ]

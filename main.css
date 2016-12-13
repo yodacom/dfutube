@@ -9,14 +9,24 @@ body {
        color: #ccc;
    }
 
-   .videoThumb {
-     text-align: center;
-     padding-top: 2px;
-     border: solid 1px #cccccc;
-   }
+   /* SECTIONS CONTENT*/
 
-   .videoThumb img {
+.searchResults {
+    flex-direction:column;
+}
+
+.videoThumb {
+  flex: 1 1 0px;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 2px;
+  border: solid 1px #cccccc;
+}
+
+.videoThumb img {
      width: 100%;
+     flex-basis: auto;
+     border: 1px red;
    }
 
 
@@ -182,7 +192,3 @@ body {
    }
 
 /* SECTIONS */
-
-.videoThumb {
-  flex: 1 1 0px;
-}
