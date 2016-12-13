@@ -9,6 +9,46 @@ body {
        color: #ccc;
    }
 
+   .videoThumb {
+     text-align: center;
+     padding-top: 2px;
+     border: solid 1px #cccccc;
+   }
+
+   .videoThumb img {
+     width: 100%;
+   }
+
+
+/* --------HEADER---------- */
+
+   .header {
+     background:
+   }
+
+   #header {
+   	position: relative;
+   	z-index: 999;
+   	background: url("/images/dfu_logo3_450x100.png") repeat 50% 0;
+   }
+
+   .clean #header {
+   	background: #eae7df url("./images/header-bg-clean.jpg") no-repeat 50% 100%;
+   }
+
+   #header-bottom {
+   	position: relative;
+   	float: left;
+   	width: 100%;
+   	padding-top: 10px;
+   	background: url("../images/header-inner-bg.jpg") no-repeat 50% 100%;
+   }
+
+   .clean #header-bottom {
+   	background: transparent;
+   }
+
+
    /*-------------------------------------*/
 
    .cf:before, .cf:after{
@@ -25,14 +65,14 @@ body {
      zoom:1;
    }
 
-   /*-------------------------------------*/
+   /*----FORM ELEMENTS---------*/
 
    .form-wrapper {
      display: flex;
-     justify-content: center;
+     justify-content: space-around;
        width: 550px;
        padding: 15px;
-       margin: 150px auto 50px auto;
+       margin: 20px auto 50px auto;
        background: #444;
        background: rgba(0,0,0,.2);
        -moz-border-radius: 10px;
@@ -45,18 +85,21 @@ body {
 
    .form-wrapper input {
      display: flex;
-     justify-content: space-around;;
-
+     justify-content: space-around center;
        width: 330px;
-       height: 20px;
+       height: 40px;
        padding: 10px 5px;
-       // float: left;
        font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
        border: 0;
        background: #eee;
        -moz-border-radius: 3px 0 0 3px;
        -webkit-border-radius: 3px 0 0 3px;
        border-radius: 3px 0 0 3px;
+   }
+
+   .form-wrapper input button {
+     display: flex;
+     justify-content: center;
    }
 
    .form-wrapper input:focus {
@@ -121,7 +164,7 @@ body {
        border-width: 8px 8px 8px 0;
        border-style: solid solid solid none;
        border-color: transparent #d83c3c transparent;
-       top: 5px;
+       top: 10px;
        left: -4px;
    }
 
@@ -137,3 +180,9 @@ body {
        border: 0;
        padding: 0;
    }
+
+/* SECTIONS */
+
+.videoThumb {
+  flex: 1 1 0px;
+}
