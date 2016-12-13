@@ -1,36 +1,69 @@
-/* eslint-env jquery */
-
+// Searchbar handler
 $(function(){
-  $("form").on("submit", function(e) {
-    e.preventDefault();
-    // request set up
-    const request = gapi.client.youtube.search.list({
-        part: "snippet",
-        type: "video",
-        q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
-        maxResults: 5,
-        order: "viewCount",
-        publishedAfter: "2015-01-01T00:00:00Z"
-    });
-     // request activated
-     request.execute(function(response){
-       console.log(response);
-       let results = response.result;
-       $.each(results.items, function(index, item){
-         console.log(item);
-         $("#results").append(item.id.videoId+" "+item.snippet.title+"<br>");
-       });
-     });
-  });
+  const searchField = $('#query');
+
+});
+$('#search-form').submit(function(e){
+  e.preventDefault();
 });
 
-function init() {
-  // 2. Initialize the JavaScript client library.
-  gapi.client.setApiKey("AIzaSyDEXr4oyh0Iaj--3jt1npgIY1X5oALaWy8");
-  gapi.client.load("youtube", "v3",function() {
-    // youTube API is ready
+function search (){
+  // get the results clear first
+  $("#results").html('');
+  $('#buttons').html('');
 
-  });
+  // get data from form
+  q = $('#query').val();
+
+// get request on API
+  $.get(
+    "https://www.googleapis.com/youtube/v3/search",{
+      part: 'snippet, id',
+      q: q,
+      type:'video',
+      key:'AIzaSyDEXr4oyh0Iaj--3jt1npgIY1X5oALaWy8',
+      function(data){
+        var nextPageToken = data.nextPageToken;
+        var prevPageToken = data.prevPageToken;
+
+        // log data
+        console.log(data);
+
+        $.each(data.items, function(i, item){
+          var output = getOutput(item);
+
+          // display results
+          $('results').append(output);
+        });
+    }
+ )};
+}
+
+// Build output
+function getOutput(item){
+  var videoID = item.id.videoID;
+  var title = item.snippet.title;
+  var description = item.snippet.thumnails.high.url;
+  var thumb = item.snippet.thumnails.high.url;
+  var channelTitle = item.snippet.publishedAt;
+
+  // Build output string
+
+  var output = '<li>' +
+    '<div class="list-left">' +
+    '<img src="+thumb+">' +
+    '</div>' +
+    '<div class="list-right">' +
+    '<h3>' +title+ '</h3>' +
+    '<small>By <span class="cTitle">'+channelTitle+'</span> on '+videoDate+'</small>' +
+    '<p>' +description+'</p>' +
+    '</div>' +
+    '</li>' +
+    '<div class="clearfix"></div>' +
+    '';
+
+    return output;
+
+
 
 }
-gapi.load("client", init);
