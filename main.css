@@ -12,7 +12,9 @@ body {
    /* SECTIONS CONTENT*/
 
 .searchResults {
-    flex-direction:column;
+  display: flex;
+  flex-basis:900px;
+  flex-direction:column;  
 }
 
 .videoThumb {
