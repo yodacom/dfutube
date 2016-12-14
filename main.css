@@ -10,11 +10,15 @@ body {
    }
 
    /* SECTIONS CONTENT*/
-
+.videoContainer {
+  min-height:600px;
+  padding:5px;
+  border:2px;
+}
 .searchResults {
   display: flex;
   flex-basis:900px;
-  flex-direction:column;  
+  flex-direction:column;
 }
 
 .videoThumb {
