@@ -212,3 +212,21 @@ body {
   margin:10px;
   cursor:pointer;
 }
+
+/* parent of the flex area */
+.list-item{
+    display: flex;
+    flex-direction: row;
+}
+
+.list-left{
+    flex-grow: 1;
+}
+
+.list-right{
+    flex-grow: 2;
+}
+
+.videoPlayer{
+    display: none;
+}
