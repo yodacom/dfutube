@@ -1,5 +1,8 @@
 // Searchbar handler
+
+
 $(function() {
+
   const searchField = $('#query');
     $('#search-form').submit(function(e) {
         e.preventDefault();
@@ -26,9 +29,10 @@ function loadPlayer(){
 
     // 3. This function creates an <iframe> (and YouTube player)
     //    after the API code downloads.
-    var player;
-    function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
+
+    window.onYouTubeIframeAPIReady = function() {
+        console.log('API READY');
+        window.player = new YT.Player('player', {
             events: {
                 'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange
@@ -54,6 +58,7 @@ function loadPlayer(){
     function stopVideo() {
         player.stopVideo();
     }
+
 }
 
 function loadVideo(videoId){
@@ -200,7 +205,7 @@ function search() {
 }
   // Build output
   function getOutput(item) {
-    var videoID = item.id.videoID;
+    var videoID = item.id.videoId;
     var title = item.snippet.title;
     var description = item.snippet.description;
     var thumb = item.snippet.thumbnails.default.url;
@@ -209,7 +214,8 @@ function search() {
 
     var li = $('<li>', {class:'list-item'}); // <li></li>
     var listLeft = $('<div>', {class:'list-left'}); //<div class="list-left"></div>
-    var a = $('<a>', {class:'videoLink', "data-id":videoID});
+    var a = $('<a>', {class:'videoLink'});
+    a.data('id', videoID);
     var img = $('<img>', {src:thumb}); //<img src="http://...."/>
     a.append(img);
     listLeft.append(a);
