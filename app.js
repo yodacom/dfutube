@@ -2,7 +2,6 @@
 
 // Searchbar handler
 
-
 $(function() {
 
   const searchField = $('#query');
@@ -69,6 +68,7 @@ function loadVideo(videoId){
     $('#player').attr('src', url);
 }
 
+// SEARCH FUNCTION
 
 function search() {
   // get the results clear first
