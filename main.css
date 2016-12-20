@@ -1,13 +1,96 @@
-body {
-       background: #555 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpi/P//PwM6YGLAAuCCmpqacC2MRGsHCDAA+fIHfeQbO8kAAAAASUVORK5CYII=);
-       font: 13px 'Lucida sans', Arial, Helvetica;
-       color: #eee;
-       margin-left: 20px;
+* {
+  padding: 5px 10px 10px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+   height:100%;
+   background: #555 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpi/P//PwM6YGLAAuCCmpqacC2MRGsHCDAA+fIHfeQbO8kAAAAASUVORK5CYII=);
+   font: 13px 'Lucida sans', Arial, Helvetica;
+   color: #eee;
    }
 
    a {
        color: #ccc;
    }
+
+.intro {
+  display: flex;
+  justify-content: center;
+}
+/* FROM CSS TEST */
+
+.videoPlayer {
+  align-items: flex-start;
+}
+
+.flex-container {
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   /*border: 5px solid goldenrod;*/
+   min-height: 100vh;
+   min-width: 320px;
+   max-width: 1220px;
+ }
+
+.serchResults-container {
+  flex-flow: row;
+  justify-content: center;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.searchResults {
+  height: 100vh;
+  overflow: auto;
+  flex:1;
+  /*background-color: #e46119;
+  border: 5px solid #626262;*/
+  padding: 10px 0 0 10px;
+  flex-direction:row;
+  /*align-content: space-between;
+  flex:0 1 auto;*/
+  }
+
+.textContainer {
+  align-items: center;
+  flex:10 5 300px;
+  vertical-align: center;
+  flex-direction: row;
+
+}
+
+.description {
+  flex:1;
+  /*border: 5px solid red*/
+
+}
+
+.textContainer p {
+
+}
+
+.thumb {
+  /*border: 5px solid green;*/
+  max-width: 120px;
+  max-height: 90px;
+
+}
+
+li {
+  display: flex;
+  justify-content:flex-start;
+  flex-direction: row;
+  text-align:left;
+  list-style-type:none;
+  /*border: 5px solid purple;*/
+}
+
+/* END CSS TEST */
+
+
 
    .main {
      display:flex;
@@ -81,10 +164,13 @@ body {
 
 
 /* --------HEADER---------- */
+.header {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
 
-   .header {
-     background:
-   }
+
+}
 
    #header {
    	position: relative;
@@ -98,7 +184,7 @@ body {
 
    #header-bottom {
    	position: relative;
-   	float: left;
+   	float: right;
    	width: 100%;
    	padding-top: 10px;
    	background: url("../images/header-inner-bg.jpg") no-repeat 50% 100%;

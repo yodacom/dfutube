@@ -8,7 +8,7 @@
 
   <!-- Responsive viewport tag, tells small screens that it's responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="FREE Tutorials for Developers">
+  <meta name="description" content="FREE Tutorials for Digital Pros">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="float-grid.css" />
@@ -21,15 +21,19 @@
       <logo>
         <img src="./images/dfu_logo3_450x100.png" alt="DFU Logo">
       </logo>
-      <h1>You Tube Training videos for developers</h1>
+
+      <form class="form-wrapper" id="search-form">
+      	<input type="search" id="query" placeholder="Search for video here..." required>
+    	<button type="submit" id="search-btn" value="">Search</button>
+      </form>
+
     </header>
 
-  <form class="form-wrapper" id="search-form">
-  	<input type="search" id="query" placeholder="Search for video here..." required>
-	<button type="submit" id="search-btn" value="">Search</button>
-  </form>
+  <h1 class="intro">FREE Training Videos for Digital Pros</h1>
 
-  <main>
+
+<div class="flex-container">
+
     <section class="videoPlayer">
       <iframe id="player"
               type="text/html"
@@ -39,15 +43,18 @@
               frameborder="0"></iframe>
     </section>
 
+<section class="searchResults-container">
     <section class="searchResults" id="results">
+       <ul class="textContainer" id="textContainer">
 
-
+       </ul>
     </section>
+  </section>
 
     <section id="buttons">
     </section>
 
-  </main>
+
 
 <!--- Google Set up API links -->
   <script src="https://apis.google.com/js/api.js"></script>
@@ -60,7 +67,7 @@
 
   <!-- local scripts import -->
   <script type="text/javascript" src="app.js"></script>
-
+</div>
 
   </body>
 

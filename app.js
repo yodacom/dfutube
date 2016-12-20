@@ -231,8 +231,8 @@ function prevPage() {
     var cTitle = $('<span>', { class:'cTitle', text: channelTitle});
     var small = $('<small>', {html:'By ' + cTitle.html() + ' on ' + videoDate});
     var description = $('<p>', {text: description});
-    listRight.append(titleH3);
-    listRight.append(small);
+    listRight.append(titleH4);
+    // listRight.append(small);
     listRight.append(description);
 
     li.append(listLeft);
