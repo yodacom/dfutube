@@ -3,6 +3,7 @@
 // Searchbar handler
 
 $(function() {
+  var videoList = [];
 
   const searchField = $('#query');
 
@@ -66,13 +67,23 @@ function loadPlayer(){
 function loadVideo(videoId){
     var url = "http://www.youtube.com/embed/" + videoId + "?enablejsapi=1"
     $('#player').attr('src', url);
+
+    var video = videoList.find(function(v){
+        return v.id.videoId == videoId;
+    });
+
+    //video contains all information about the video that was clicked
+    console.log(video);
+    $('.currentVideoInfo').text(video.snippet.title);
+
+
 }
 
 // SEARCH FUNCTION
 
 function search() {
   // get the results clear first
-  $("#results").html('');
+  $("#textContainer").html('');
   $('#buttons').html('');
 
   // get data from form
@@ -94,13 +105,14 @@ function search() {
 
     // log data
     console.log(data);
+    videoList = data.items;
 
     $.each(data.items, function(i, item) {
       // Get Output
       var output = getOutput(item);
 
       // display results
-      $('#results').append(output);
+      $('#textContainer').append(output);
     });
 
     var buttons = getButtons(prevPageToken, nextPageToken);
@@ -230,10 +242,10 @@ function prevPage() {
 
     var cTitle = $('<span>', { class:'cTitle', text: channelTitle});
     var small = $('<small>', {html:'By ' + cTitle.html() + ' on ' + videoDate});
-    var description = $('<p>', {text: description});
+    var description = $('<p>', {text: description.slice(0, 60) + '...'});
     listRight.append(titleH4);
     // listRight.append(small);
-    listRight.append(description);
+    listRight.append(cTitle);
 
     li.append(listLeft);
     li.append(listRight);
