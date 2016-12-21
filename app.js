@@ -216,17 +216,17 @@ function prevPage() {
     var channelTitle = item.snippet.channelTitle;
     var videoDate = item.snippet.publishedAt;
 
-    var li = $('<li>', {class:'list-item'}); // <li></li>
+    var li = $('<li>', {class:'text-container'}); // <li></li>
     var listLeft = $('<div>', {class:'list-left'}); //<div class="list-left"></div>
-    var a = $('<a>', {class:'videoLink'});
-    a.data('id', videoID);
+    var a = $('<a>', {class:'videoLink'}); //<a class='videoLink'><a>
+    a.data('id', videoID); //
     var img = $('<img>', {src:thumb}); //<img src="http://...."/>
     a.append(img);
     listLeft.append(a);
 
     var listRight = $('<div>', {class:'list-right'});
-    var titleH3 = $('<h3>');
-    titleH3.text(title);
+    var titleH4 = $('<h4>');
+    titleH4.text(title);
 
     var cTitle = $('<span>', { class:'cTitle', text: channelTitle});
     var small = $('<small>', {html:'By ' + cTitle.html() + ' on ' + videoDate});
