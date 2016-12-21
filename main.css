@@ -19,6 +19,12 @@ html, body {
   display: flex;
   justify-content: center;
 }
+
+.currentVideoInfo {
+  display:flex;
+  justify-content: center;
+}
+
 /* FROM CSS TEST */
 
 .videoPlayer {
@@ -108,12 +114,14 @@ li {
 
    .list-left{
        flex-grow: 1;
+       flex-shrink:1;
 
    }
 
    .list-right {
     flex-grow: 2;
-    margin-left: 20px;
+    /*margin-left: 10px;*/
+    /*padding:0 0 10 0px;*/
     text-align: left;
     min-width: auto;
   }
@@ -329,11 +337,14 @@ li {
 /* BUTTONS */
 
 .button-container {
+display: flex;
+justify-content:space-between;
+background: turquoise;
 
 }
 
-.paging-button{
-  background:#f4f4f4;
+.paging-button {
+  background:transparent;
   padding:8px 13px;
   border:#ccc 1px solid;
   border-radius: 5px;
