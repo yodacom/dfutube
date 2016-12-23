@@ -74,7 +74,7 @@ function loadVideo(videoId){
 
     //video contains all information about the video that was clicked
     console.log(video);
-    $('.currentVideoInfo').text(video.snippet.title);
+    $('.currentVideoInfo').text(video.snippet.description);
 
 
 }
@@ -105,7 +105,7 @@ function search() {
 
     // log data
     console.log(data);
-    videoList = data.items;
+    videoList = data.items
 
     $.each(data.items, function(i, item) {
       // Get Output
@@ -252,6 +252,21 @@ function prevPage() {
     return li;
 
 }
+
+// currentVideoInfo
+function getFullDescription (item) {
+  var description = item.snippet.description;
+  // var small = $('<small>', {html:'By ' + cTitle.html() + ' on ' + videoDate});
+  var fullDescription = $('<p>', {text: description});
+  $('#currentVideoInfo').append(fullDescription, small);
+  return fullDescription;
+
+};
+
+console.log(getFullDescription)
+
+
+
 
 //buttons
 

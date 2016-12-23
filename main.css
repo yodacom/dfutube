@@ -22,7 +22,8 @@ html, body {
 
 .currentVideoInfo {
   display:flex;
-  justify-content: center;
+  justify-content: flex-start;
+
 }
 
 /* FROM CSS TEST */
@@ -127,11 +128,6 @@ li {
   /* min-height:90px; */
   padding:5px;
   border:2px;
-
-}
-
-
-.videoText {
 
 }
 
