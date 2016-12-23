@@ -74,7 +74,9 @@ function loadVideo(videoId){
 
     //video contains all information about the video that was clicked
     console.log(video);
-    $('.currentVideoInfo').text(video.snippet.description);
+    // $('.currentVideoInfo').text(video.snippet.description);
+    getFullDescription(video);
+
 
 
 }
@@ -156,6 +158,8 @@ function nextPage() {
     // log data
     console.log(data);
 
+    videoList = data.items;
+
     $.each(data.items, function(i, item) {
       // Get Output
       var output = getOutput(item);
@@ -197,7 +201,7 @@ function prevPage() {
   var success = function(data) {
     var nextPageToken = data.nextPageToken;
     var prevPageToken = data.prevPageToken;
-
+    videoList = data.items;
     // log data
     console.log(data);
 
@@ -256,12 +260,18 @@ function prevPage() {
 // currentVideoInfo
 function getFullDescription (item) {
   var description = item.snippet.description;
-  // var small = $('<small>', {html:'By ' + cTitle.html() + ' on ' + videoDate});
+  var videoDate = item.snippet.publishedAt;
+  var channelTitle = item.snippet.channelTitle;
+  var cTitle = $('<span>', { class:'cTitle', text: channelTitle});
+  var small = $('<small>', {html:'By ' + cTitle.html() + ' on ' + videoDate});
   var fullDescription = $('<p>', {text: description});
+  $("#currentVideoInfo").empty();
   $('#currentVideoInfo').append(fullDescription, small);
   return fullDescription;
 
 };
+
+
 
 console.log(getFullDescription)
 
