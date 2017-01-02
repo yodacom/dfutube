@@ -115,6 +115,7 @@ function search() {
 
       // display results
       $('#textContainer').append(output);
+
     });
 
     var buttons = getButtons(prevPageToken, nextPageToken);
@@ -136,7 +137,7 @@ function nextPage() {
   var q = $('#next-button').data('query');
 
   // get the results clear first
-  $("#results").html('');
+  $("#textContainer").html('');
   $('#buttons').html('');
 
   // get data from form
@@ -165,7 +166,7 @@ function nextPage() {
       var output = getOutput(item);
 
       // display results
-      $('#results').append(output);
+      $('#textContainer').append(output);
     });
 
     var buttons = getButtons(prevPageToken, nextPageToken);
@@ -183,7 +184,7 @@ function prevPage() {
   var q = $('#prev-button').data('query');
 
   // get the results clear first
-  $("#results").html('');
+  $("#textContainer").html('');
   $('#buttons').html('');
 
   // get data from form
@@ -210,7 +211,7 @@ function prevPage() {
       var output = getOutput(item);
 
       // display results
-      $('#results').append(output);
+      $('#textContainer').append(output);
     });
 
     var buttons = getButtons(prevPageToken, nextPageToken);
