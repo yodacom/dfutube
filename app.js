@@ -3,6 +3,7 @@
 // Searchbar handler
 
 $(function() {
+  var videoList = [];
 
   const searchField = $('#query');
 
@@ -66,13 +67,25 @@ function loadPlayer(){
 function loadVideo(videoId){
     var url = "http://www.youtube.com/embed/" + videoId + "?enablejsapi=1"
     $('#player').attr('src', url);
+
+    var video = videoList.find(function(v){
+        return v.id.videoId == videoId;
+    });
+
+    //video contains all information about the video that was clicked
+    console.log(video);
+    // $('.currentVideoInfo').text(video.snippet.description);
+    getFullDescription(video);
+
+
+
 }
 
 // SEARCH FUNCTION
 
 function search() {
   // get the results clear first
-  $("#results").html('');
+  $("#textContainer").html('');
   $('#buttons').html('');
 
   // get data from form
@@ -94,13 +107,15 @@ function search() {
 
     // log data
     console.log(data);
+    videoList = data.items
 
     $.each(data.items, function(i, item) {
       // Get Output
       var output = getOutput(item);
 
       // display results
-      $('#results').append(output);
+      $('#textContainer').append(output);
+
     });
 
     var buttons = getButtons(prevPageToken, nextPageToken);
@@ -122,7 +137,7 @@ function nextPage() {
   var q = $('#next-button').data('query');
 
   // get the results clear first
-  $("#results").html('');
+  $("#textContainer").html('');
   $('#buttons').html('');
 
   // get data from form
@@ -144,12 +159,14 @@ function nextPage() {
     // log data
     console.log(data);
 
+    videoList = data.items;
+
     $.each(data.items, function(i, item) {
       // Get Output
       var output = getOutput(item);
 
       // display results
-      $('#results').append(output);
+      $('#textContainer').append(output);
     });
 
     var buttons = getButtons(prevPageToken, nextPageToken);
@@ -167,7 +184,7 @@ function prevPage() {
   var q = $('#prev-button').data('query');
 
   // get the results clear first
-  $("#results").html('');
+  $("#textContainer").html('');
   $('#buttons').html('');
 
   // get data from form
@@ -185,7 +202,7 @@ function prevPage() {
   var success = function(data) {
     var nextPageToken = data.nextPageToken;
     var prevPageToken = data.prevPageToken;
-
+    videoList = data.items;
     // log data
     console.log(data);
 
@@ -194,7 +211,7 @@ function prevPage() {
       var output = getOutput(item);
 
       // display results
-      $('#results').append(output);
+      $('#textContainer').append(output);
     });
 
     var buttons = getButtons(prevPageToken, nextPageToken);
@@ -216,30 +233,51 @@ function prevPage() {
     var channelTitle = item.snippet.channelTitle;
     var videoDate = item.snippet.publishedAt;
 
-    var li = $('<li>', {class:'list-item'}); // <li></li>
+    var li = $('<li>', {class:'text-container'}); // <li></li>
     var listLeft = $('<div>', {class:'list-left'}); //<div class="list-left"></div>
-    var a = $('<a>', {class:'videoLink'});
-    a.data('id', videoID);
+    var a = $('<a>', {class:'videoLink'}); //<a class='videoLink'><a>
+    a.data('id', videoID); //
     var img = $('<img>', {src:thumb}); //<img src="http://...."/>
     a.append(img);
     listLeft.append(a);
 
     var listRight = $('<div>', {class:'list-right'});
-    var titleH3 = $('<h3>');
-    titleH3.text(title);
+    var titleH4 = $('<h4>');
+    titleH4.text(title);
 
     var cTitle = $('<span>', { class:'cTitle', text: channelTitle});
     var small = $('<small>', {html:'By ' + cTitle.html() + ' on ' + videoDate});
-    var description = $('<p>', {text: description});
-    listRight.append(titleH3);
-    listRight.append(small);
-    listRight.append(description);
+    var description = $('<p>', {text: description.slice(0, 60) + '...'});
+    listRight.append(titleH4);
+    // listRight.append(small);
+    listRight.append(cTitle);
 
     li.append(listLeft);
     li.append(listRight);
     return li;
 
 }
+
+// currentVideoInfo
+function getFullDescription (item) {
+  var description = item.snippet.description;
+  var videoDate = item.snippet.publishedAt;
+  var channelTitle = item.snippet.channelTitle;
+  var cTitle = $('<span>', { class:'cTitle', text: channelTitle});
+  var small = $('<small>', {html:'By ' + cTitle.html() + ' on ' + videoDate});
+  var fullDescription = $('<p>', {text: description});
+  $("#currentVideoInfo").empty();
+  $('#currentVideoInfo').append(fullDescription, small);
+  return fullDescription;
+
+};
+
+
+
+console.log(getFullDescription)
+
+
+
 
 //buttons
 

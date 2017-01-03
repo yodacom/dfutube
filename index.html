@@ -8,7 +8,7 @@
 
   <!-- Responsive viewport tag, tells small screens that it's responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="FREE Tutorials for Developers">
+  <meta name="description" content="FREE Tutorials for Digital Pros">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="float-grid.css" />
@@ -21,33 +21,47 @@
       <logo>
         <img src="./images/dfu_logo3_450x100.png" alt="DFU Logo">
       </logo>
-      <h1>You Tube Training videos for developers</h1>
+
+      <form class="form-wrapper" id="search-form">
+      	<input type="search" id="query" placeholder="Search for video here..." required>
+    	<button type="submit" id="search-btn" value="">Search</button>
+      </form>
+
     </header>
 
-  <form class="form-wrapper" id="search-form">
-  	<input type="search" id="query" placeholder="Search for video here..." required>
-	<button type="submit" id="search-btn" value="">Search</button>
-  </form>
+  <h1 class="intro">FREE Training Videos for Digital Pros</h1>
 
-  <main>
+
+<div class="flex-container">
+
     <section class="videoPlayer">
       <iframe id="player"
               type="text/html"
               width="640"
               height="390"
               src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
-              frameborder="0"></iframe>
+              frameborder="0"
+              allowfullscreen="allowfullscreen"></iframe>
+<section class="currentVideoInfo" id="currentVideoInfo">Current Video Information</section>
+      <section class="paging-button" id="buttons">
+
+      </section>
     </section>
 
+
+
+<section class="searchResults-container">
     <section class="searchResults" id="results">
+       <ul class="textContainer" id="textContainer">
 
-
+       </ul>
     </section>
 
-    <section id="buttons">
-    </section>
+  </section>
 
-  </main>
+
+
+
 
 <!--- Google Set up API links -->
   <script src="https://apis.google.com/js/api.js"></script>
@@ -55,12 +69,13 @@
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
+  
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
   <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=init"></script>
-
+<script type="text/javascript" src="colorbox-master/jquery.colorbox.js"></script>
   <!-- local scripts import -->
   <script type="text/javascript" src="app.js"></script>
-
+</div>
 
   </body>
 
