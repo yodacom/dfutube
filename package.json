@@ -1,0 +1,22 @@
+{
+  "name": "dfutube",
+  "version": "1.0.0",
+  "description": "YouTube search app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yodacom/dfutube.git"
+  },
+  "author": "Jeremy Black",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yodacom/dfutube/issues"
+  },
+  "homepage": "https://github.com/yodacom/dfutube#readme",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
